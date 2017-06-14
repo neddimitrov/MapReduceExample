@@ -79,10 +79,11 @@ if __name__ == '__main__':
     print
     print
     # Diogo said "No Outside Joins are allowed."
-    # I think this is still an efficient solution and a map reduce
-    # program that solves the problem, so I'm keeping it here.
-    # I'll also solve the problem a different way with map and reduce
-    # And creating a file for another map and reduce
+    # I think this an efficient solution and a map reduce
+    # program that solves the problem, so I'm keeping it here 
+    # for the purposes of conversation.  I'll also solve the 
+    # problem a different way with map and reduce and creating 
+    # a file for another map and reduce
     print 'Movie Name, Rating - Example 2'
     print '------------------------------'
     ratings = dict(ratings)
