@@ -58,7 +58,7 @@ class Engines:
         ans = 0
         for r in tmp:
             ans += r.get()
-        print 'Cleaned', fname, ans
+        #print 'Cleaned', fname, ans
 
     def cleanData(self):
         """Cleans all data stored in the engines."""
@@ -69,7 +69,7 @@ class Engines:
         ans = 0
         for r in execs:
             ans += r.get()
-        print 'Cleaned', ans
+        #print 'Cleaned', ans
             
 
     def distributeData(self, aid, afile):
@@ -81,7 +81,7 @@ class Engines:
         ans = 0
         for r in lines:
             ans += r.get()
-        print 'Distributed', ans
+        #print 'Distributed', ans
 
 
 def applyMap(key, afunc):

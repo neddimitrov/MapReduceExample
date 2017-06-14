@@ -41,6 +41,23 @@ def rreducer(key, entries):
     """Reducer for the ratings.txt file"""
     return key, sum(entries)/float(len(entries))
 
+
+def jmapper(line):
+    """Mapper for the newfile.txt file.  Basically using map reduce to do the join."""
+    import ast
+    pair = ast.literal_eval(line)
+    if type(pair[1]) == str:
+        return [(pair[1], pair[0])]
+    else:
+        return [pair]
+
+def jreducer(key, entries):
+    """Reducer for the newfile.txt file.  Basically using map reduce to do the join."""
+    if type(entries[0]) == str:
+        return entries[0], entries[1]
+    else:
+        return entries[1], entries[0]
+
 if __name__ == '__main__':
     mr = mapred.MapReduce()
     example1 = mr.mapreduce('if-kipling.txt', wmapper, wreducer)
@@ -61,6 +78,11 @@ if __name__ == '__main__':
     print ratings
     print
     print
+    # Diogo said "No Outside Joins are allowed."
+    # I think this is still an efficient solution and a map reduce
+    # program that solves the problem, so I'm keeping it here.
+    # I'll also solve the problem a different way with map and reduce
+    # And creating a file for another map and reduce
     print 'Movie Name, Rating - Example 2'
     print '------------------------------'
     ratings = dict(ratings)
@@ -68,5 +90,32 @@ if __name__ == '__main__':
         print '%s, %f'%(k,ratings[v])
     print
     print
-
+    ######
+    movies = mr.mapreduce('movies.txt', mmapper, mreducer)
+    print 'Movies (2.0)'
+    print '------------'
+    print movies
+    print 
+    print
+    ratings = mr.mapreduce('ratings.txt', rmapper, rreducer)
+    print 'Ratings (2.0)'
+    print '-------------'
+    print ratings
+    print
+    print
+    # Write out the previous two map reduce steps.
+    # The lines are in arbitrary order
+    ofile = open('newfile.txt','w')
+    for m in movies:
+        ofile.write(str(m)+'\n')
+    for r in ratings:
+        ofile.write(str(r)+'\n')
+    ofile.close()
+    # Now use a map reduce step to do the "join."
+    named_ratings = mr.mapreduce('newfile.txt', jmapper, jreducer)
+    print 'MR Joined Ratings (2.0)'
+    print '-----------------------'
+    print named_ratings
+    print
+    print
 
