@@ -144,7 +144,8 @@ if __name__ == '__main__':
     movies = mr.mapreduce('movies.txt', mmapper, mreducer)
     ratings = mr.mapreduce('ratings.txt', rmapper, rreducer)
     # Write out the previous two map reduce steps.
-    # The lines are in arbitrary order
+    # The lines are in arbitrary order.  Not very efficient because of 
+    # disk writes...
     ofile = open('newfile.txt','w')
     for m in movies:
         ofile.write(str(m)+'\n')
@@ -160,7 +161,8 @@ if __name__ == '__main__':
     print
     # We can also do the creation of newfile.txt inside the reducers
     # for movies and ratings.  That way, the whole program is three
-    # mapreduce calls
+    # mapreduce calls.  Also, it is not very efficient because of 
+    # disk writes...
     movies = mr.mapreduce('movies.txt', mmapper, mreducer2)
     ratings = mr.mapreduce('ratings.txt', rmapper, rreducer2)
     named_ratings = mr.mapreduce('newfile2.txt', jmapper, jreducer)
