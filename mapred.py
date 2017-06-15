@@ -119,6 +119,8 @@ class MapReduce:
         ans = []
         for r in sep:
             ans.extend(r.get())
+        # The output of the maps
+        #print ans
         ans_dict = {}
         #Turn the lists into a dictionary to be efficient in reducing
         for alist in ans:
@@ -129,9 +131,12 @@ class MapReduce:
                     ans_dict[k] = []
                     ans_dict[k].append(v)
         #Reduce and return the result
+        #print ans_dict
         retval = []
         for k,v in ans_dict.iteritems():
             retval.append( self.reducer(k,v) )
+        # The output of the reduce
+        #print self.reducer.__name__, retval
         return retval
 
 
