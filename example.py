@@ -171,6 +171,8 @@ if __name__ == '__main__':
     print named_ratings
     print
     print
+    import os
+    os.remove('newfile2.txt')
     # Finally, I think its possible to do it with one mapreduce call
     # by dumping both movies.txt and ratings.txt into a single file
     # Then, the mapper does the right thing by looking at the content of
