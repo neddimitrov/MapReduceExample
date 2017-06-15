@@ -1,0 +1,20 @@
+{id: 1, name: 'The Matrix'}
+{id: 2, name: 'Bicycle Thief'}
+{id: 3, name: 'The Royal Tenenbaums'}
+{id: 4, name: 'Ghost in the Shell'}
+{user_id: 100, movie_id: 1, rating: 10}
+{user_id: 101, movie_id: 1, rating: 9.2}
+{user_id: 102, movie_id: 1, rating: 6}
+{user_id: 103, movie_id: 1, rating: 8.5}
+{user_id: 100, movie_id: 2, rating: 7.5}
+{user_id: 101, movie_id: 2, rating: 10}
+{user_id: 102, movie_id: 2, rating: 10}
+{user_id: 103, movie_id: 2, rating: 9.5}
+{user_id: 100, movie_id: 3, rating: 6}
+{user_id: 101, movie_id: 3, rating: 8}
+{user_id: 102, movie_id: 3, rating: 9}
+{user_id: 103, movie_id: 3, rating: 9}
+{user_id: 100, movie_id: 4, rating: 9}
+{user_id: 101, movie_id: 4, rating: 7}
+{user_id: 102, movie_id: 4, rating: 8}
+{user_id: 103, movie_id: 4, rating: 8}
